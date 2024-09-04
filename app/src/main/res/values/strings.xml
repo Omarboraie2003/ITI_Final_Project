@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="cart">Cart</string>
+    <string name="favourits">Favourits</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_fragment">Home Fragment</string>
+    <string name="profile_fragment">Profile Fragment</string>
+    <string name="favourites_fragment">Favourites Fragment</string>
+    <string name="cart_fragment">Cart Fragment</string>
+    <string name="infoic">infoIc</string>
+    <string name="infoIc">infoIc</string>
+    <string name="infoicon">infoIcon</string>
+</resources>
