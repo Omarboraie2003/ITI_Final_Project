@@ -63,7 +63,7 @@ dependencies {
     annotationProcessor(libs.room.compiler.v261)
 
     // To use Kotlin annotation processing tool (kapt)
-    //kapt(libs.room.compiler.v261)
+    kapt(libs.room.compiler.v261)
     // To use Kotlin Symbol Processing (KSP)
 
     // optional - Kotlin Extensions and Coroutines support for Room

@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import com.example.myapplication.data.model.Product
 
 @Dao
 interface ProductDao {
@@ -13,7 +14,7 @@ interface ProductDao {
     suspend fun insertProduct(product: Product)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllProducts(products: List<com.example.myapplication.data.model.Product>)
+    suspend fun insertAllProducts(products: List<Product>)
 
     @Query("SELECT * FROM products")
     suspend fun getAllProducts(): List<Product>

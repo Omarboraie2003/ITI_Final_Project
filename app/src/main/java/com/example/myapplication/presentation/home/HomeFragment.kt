@@ -38,12 +38,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        productDao = ProductDatabase.getDatabase(requireContext().applicationContext).productDao()
+        repository = ProductsRepository(productDao)
+        viewModel = ViewModelProvider(this, HomeViewModelFactory(repository))[HomeViewModel::class.java]
         binding.recyclerview.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-    productDao = ProductDatabase.getDatabase(requireContext()).productDao()
-       repository = ProductsRepository(productDao)
-        val viewModelFactory =HomeViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
         viewModel.products.observe(viewLifecycleOwner) { products ->
             productAdapter = HomeAdapter(products) { product ->
                 if (product.isFavorite) {

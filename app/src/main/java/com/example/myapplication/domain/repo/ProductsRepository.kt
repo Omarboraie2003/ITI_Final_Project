@@ -1,7 +1,7 @@
 package com.example.myapplication.domain.repo
 
 import com.example.myapplication.data.local.ProductDao
-import com.example.myapplication.data.local.Product
+import com.example.myapplication.data.model.Product
 import com.example.myapplication.data.remote.ProductModule.apiService
 
 class ProductsRepository(private val productDao:ProductDao) {
