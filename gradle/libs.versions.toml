@@ -27,6 +27,7 @@ roomKtx = "2.6.1"
 roomKtxVersion = "2.5.2"
 volley = "1.2.1"
 androidxNavigationSafeargsGradlePlugin ="2.7.7"
+recyclerview = "1.3.2"
 
 [libraries]
 androidx-activity-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref = "activity" }
@@ -65,6 +66,7 @@ material-v190 = { module = "com.google.android.material:material", version.ref =
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "converterMoshi" }
 room-compiler-v261 = { module = "androidx.room:room-compiler", version.ref = "androidxRoomCompiler" }
 volley = { group = "com.android.volley", name = "volley", version.ref = "volley" }
+androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview", version.ref = "recyclerview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

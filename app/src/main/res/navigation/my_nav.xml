@@ -7,14 +7,14 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.example.myapplication.HomeFragment"
+        android:name="com.example.myapplication.presentation.home.HomeFragment"
         android:label="fragment_home_fragment"
         tools:layout="@layout/fragment_home_fragment" >
 
     </fragment>
     <fragment
         android:id="@+id/favourites_fragment"
-        android:name="com.example.myapplication.FragmentFavourite"
+        android:name="com.example.myapplication.presentation.favourite.FragmentFavourite"
         android:label="fragment_favourites_fragment"
         tools:layout="@layout/fragment_favourites_fragment" >
 
