@@ -38,7 +38,6 @@ class FragmentFavourite : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
        productDao = ProductDatabase.getDatabase(requireContext()).productDao()
         repository = ProductsRepository(productDao)
         val viewModelFactory = FavouriteViewModelFactory(repository)
