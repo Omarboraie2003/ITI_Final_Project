@@ -2,7 +2,9 @@ package com.example.myapplication.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 
+@TypeConverters(Converter::class)
 @Entity(tableName = "products")
 data class Product(
     @PrimaryKey
@@ -12,6 +14,7 @@ data class Product(
     val category: String,
     val description: String,
     val discountPercentage: Double,
+    val image: List<String>,
     val price: Double,
     val rating: Double,
     val stock: Int,
