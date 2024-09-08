@@ -2,42 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/my_nav"
+    android:id="@+id/login_reg_nav"
     app:startDestination="@id/accountOptionsFragment">
-
-    <fragment
-        android:id="@+id/home_fragment"
-        android:name="com.example.myapplication.HomeFragment"
-        android:label="fragment_home_fragment"
-        tools:layout="@layout/fragment_home_fragment" >
-
-    </fragment>
-    <fragment
-        android:id="@+id/favourites_fragment"
-        android:name="com.example.myapplication.FragmentFavourite"
-        android:label="fragment_favourites_fragment"
-        tools:layout="@layout/fragment_favourites_fragment" >
-
-    </fragment>
-    <fragment
-        android:id="@+id/cart_fragment"
-        android:name="com.example.myapplication.FragmentCart"
-        android:label="fragment_cart_fragment"
-        tools:layout="@layout/fragment_cart_fragment" >
-
-    </fragment>
-    <fragment
-        android:id="@+id/profile_fragment"
-        android:name="com.example.myapplication.profile_fragment"
-        android:label="fragment_profile_fragment"
-        tools:layout="@layout/fragment_profile_fragment" >
-
-    </fragment>
-    <fragment
-        android:id="@+id/fragmentInfo"
-        android:name="com.example.myapplication.FragmentInfo"
-        android:label="fragment_info"
-        tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/loginFragment"
@@ -47,7 +13,7 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:popUpTo="@id/accountOptionsFragment" />
+             />
         <action
             android:id="@+id/action_loginFragment_to_home_fragment"
             app:destination="@id/home_fragment" />
