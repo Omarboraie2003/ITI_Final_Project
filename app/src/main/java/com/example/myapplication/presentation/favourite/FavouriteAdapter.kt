@@ -35,10 +35,12 @@ class FavouriteAdapter (
         holder.productName.text = product.title
         holder.productPrice.text = "$${product.price}"
 
-
+        Glide.with(holder.itemView.context)
+            .load(product.thumbnail)
+            .into(holder.productImage)
         // Load the product image using Glide or any image loading library
         holder.favoriteButton.setImageResource(
-           R.drawable.ic_heart_outline
+            if (product.isFavorite) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
         )
         // Handle click on the favorite button
         holder.favoriteButton.setOnClickListener {

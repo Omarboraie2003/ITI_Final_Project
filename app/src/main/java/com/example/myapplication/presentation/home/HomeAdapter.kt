@@ -33,7 +33,9 @@ class HomeAdapter (
         holder.productName.text = product.title
         holder.productPrice.text = "$${product.price}"
 
-
+        Glide.with(holder.itemView.context)
+            .load(product.thumbnail)
+            .into(holder.productImage)
         // Update the heart icon based on the isFavorite status
         holder.favoriteButton.setImageResource(
             if (product.isFavorite) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
