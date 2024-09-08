@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.data.model.Product
 
@@ -16,10 +15,10 @@ class HomeAdapter (
 ) : RecyclerView.Adapter<HomeAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val productName: TextView = itemView.findViewById(R.id.product_name)
+        val productName: TextView = itemView.findViewById(R.id.product_title)
         val productPrice: TextView = itemView.findViewById(R.id.product_price)
         val productImage: ImageView = itemView.findViewById(R.id.product_image)
-        val favoriteButton: ImageView = itemView.findViewById(R.id.fav_icon)
+        val favoriteButton: ImageView = itemView.findViewById(R.id.overlay_iconHeart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
