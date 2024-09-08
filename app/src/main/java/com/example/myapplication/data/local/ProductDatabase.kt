@@ -4,8 +4,9 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.myapplication.data.model.Product
 
-@Database(entities = [Product::class], version = 1)
+@Database(entities = [Product::class], version = 2)
 abstract class ProductDatabase : RoomDatabase() {
     abstract fun productDao(): ProductDao
 
