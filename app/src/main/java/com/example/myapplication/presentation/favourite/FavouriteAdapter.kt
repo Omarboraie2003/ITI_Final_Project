@@ -34,9 +34,7 @@ class FavouriteAdapter (
         val product = products[position]
         holder.productName.text = product.title
         holder.productPrice.text = "$${product.price}"
-        Glide.with(holder.itemView.context)
-            .load(product.image)
-            .into(holder.productImage)
+
 
         // Load the product image using Glide or any image loading library
         holder.favoriteButton.setImageResource(

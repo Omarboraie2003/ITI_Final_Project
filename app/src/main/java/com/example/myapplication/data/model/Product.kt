@@ -14,7 +14,6 @@ data class Product(
     val category: String,
     val description: String,
     val discountPercentage: Double,
-    val image: List<String>,
     val price: Double,
     val rating: Double,
     val stock: Int,
