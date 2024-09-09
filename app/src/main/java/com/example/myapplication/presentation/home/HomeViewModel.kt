@@ -26,10 +26,20 @@ class HomeViewModel (private val repository: ProductsRepository) : ViewModel() {
             repository.addProductToFavorites(product)
         }
     }
-
+    fun addProductToCart(product: Product){
+        viewModelScope.launch {
+            repository.addProductToInCart(product)
+        }
+    }
     fun removeProductFromFavorites(product: Product) {
         viewModelScope.launch {
             repository.removeProductFromFavorites(product)
         }
     }
+    fun removeProductFromCart(product: Product) {
+        viewModelScope.launch {
+            repository.removeProductFromInCart(product)
+        }
+    }
+
 }

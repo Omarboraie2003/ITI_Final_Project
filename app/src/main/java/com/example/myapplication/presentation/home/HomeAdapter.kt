@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
 import com.example.myapplication.data.model.Product
-import com.example.myapplication.data.model.ProductDM
 
 class HomeAdapter (
     private val products: List<Product>,
-    private val onFavoriteClick: (Product) -> Unit
+    private val onFavoriteClick: (Product) -> Unit,
+    private val onInCartClick: (Product) -> Unit
 ) : RecyclerView.Adapter<HomeAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -21,6 +21,7 @@ class HomeAdapter (
         val productPrice: TextView = itemView.findViewById(R.id.product_price)
         val productImage: ImageView = itemView.findViewById(R.id.product_image)
         val favoriteButton: ImageView = itemView.findViewById(R.id.overlay_iconHeart)
+        val inCartButton:ImageView = itemView.findViewById(R.id.overlay_iconCart)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -40,8 +41,14 @@ class HomeAdapter (
         holder.favoriteButton.setImageResource(
             if (product.isFavorite) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
         )
-
-
+        holder.inCartButton.setImageResource(
+            if (product.inCart) R.drawable.baseline_shopping_cart_24 else R.drawable.ic_shopping_cart
+        )
+        holder.inCartButton.setOnClickListener {
+            onInCartClick(product)
+            // Update the heart icon immediately after the click
+            notifyItemChanged(position)
+        }
         // Handle favorite button click
         holder.favoriteButton.setOnClickListener {
             onFavoriteClick(product)
@@ -51,4 +58,5 @@ class HomeAdapter (
     }
 
     override fun getItemCount(): Int = products.size
+
 }
