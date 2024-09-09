@@ -68,18 +68,15 @@ class MainActivity : AppCompatActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             if (destination.id in hideBottomNavFraments) {
-                // Hide BottomNavigationView and Toolbar for specific fragments
                 binding.bottomNavigationView.visibility = BottomNavigationView.GONE
                 supportActionBar?.hide()
             } else {
-                // Show BottomNavigationView and Toolbar for other fragments
                 binding.bottomNavigationView.visibility = BottomNavigationView.VISIBLE
                 supportActionBar?.show()
             }
         }
 
     }
-
 
 
 
@@ -105,7 +102,6 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
     private fun isUserLoggedIn(): Boolean {
         val sharedPref = getSharedPreferences("userData", Context.MODE_PRIVATE)
         return sharedPref.getBoolean("isLoggedIn", false)

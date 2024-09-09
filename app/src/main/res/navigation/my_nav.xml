@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.myapplication.fragments.LoginFragment"
+        android:name="com.example.myapplication.fragments.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -54,7 +54,7 @@
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
-        android:name="com.example.myapplication.fragments.RegisterFragment"
+        android:name="com.example.myapplication.fragments.resigstraion.RegisterFragment"
         android:label="RegisterFragment"
         tools:layout="@layout/fragment_register">
         <action
@@ -67,7 +67,7 @@
     </fragment>
     <fragment
         android:id="@+id/accountOptionsFragment"
-        android:name="com.example.myapplication.fragments.ChoiceFragment"
+        android:name="com.example.myapplication.fragments.login.ChoiceFragment"
         android:label="AccountOptionsFragment"
         tools:layout="@layout/fragment_choice">
         <action
