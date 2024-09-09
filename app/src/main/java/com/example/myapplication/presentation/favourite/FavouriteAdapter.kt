@@ -39,14 +39,15 @@ class FavouriteAdapter (
             .load(product.thumbnail)
             .into(holder.productImage)
         // Load the product image using Glide or any image loading library
-        holder.favoriteButton.setImageResource(
-            if (product.isFavorite) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
-        )
+
         // Handle click on the favorite button
         holder.favoriteButton.setOnClickListener {
             // Call the callback function
             onFavoriteClick(product)
+            holder.favoriteButton.setImageResource(
+                if (product.isFavorite) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
+            )
             notifyItemRemoved(position)
-    }
+           }
         }
     }

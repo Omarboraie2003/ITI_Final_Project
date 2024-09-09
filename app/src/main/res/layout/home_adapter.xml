@@ -27,16 +27,16 @@
         <!-- Overlay Icon -->
         <ImageView
             android:id="@+id/overlay_iconHeart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="29dp"
+            android:layout_height="38dp"
             android:layout_gravity="top|start"
             android:contentDescription="TO add product to favourite"
             android:src="@drawable/ic_heart_outline" />
         <ImageView
             android:layout_marginStart="10dp"
             android:id="@+id/overlay_iconCart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="28dp"
+            android:layout_height="38dp"
             android:layout_gravity="top|start"
             android:contentDescription="TO add product to cart"
             android:src="@drawable/baseline_shopping_cart_24" />

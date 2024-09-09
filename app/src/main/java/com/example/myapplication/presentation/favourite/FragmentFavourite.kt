@@ -45,7 +45,7 @@ class FragmentFavourite : Fragment() {
 
         viewModel.favouriteProducts.observe(viewLifecycleOwner) { products ->
             productAdapter = FavouriteAdapter(products) { product ->
-                if (!product.isFavorite) {
+                if (product.isFavorite) {
                     viewModel.removeProductFromFavorites(product)
                 }
             }

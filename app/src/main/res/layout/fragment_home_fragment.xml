@@ -30,9 +30,8 @@
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:gravity="center"
-                android:background="@color/primary"
-
-                />
+                android:background="@color/white"
+                android:elevation="4dp" />
 
         </LinearLayout>
 
