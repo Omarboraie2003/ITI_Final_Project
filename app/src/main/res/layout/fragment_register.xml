@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".fragments.RegisterFragment"
+    tools:context=".fragments.resigstraion.RegisterFragment"
     android:id="@+id/regFragment">
 
     <ScrollView
@@ -40,6 +40,27 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/fullnameEt_signUpPage"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="15sp"
+            android:paddingLeft="20dp"
+            android:drawableRight="@null"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/mainText"
+            android:background="@drawable/edit_text_bg"
+            android:fontFamily="@font/metropolis_regular"
+            android:hint="Full Name"
+            android:inputType="textPersonName"
+            android:maxLines="1"
+            android:elevation="5dp"
+            />
+
+
+
+        <EditText
             android:id="@+id/usernameEt_signUpPage"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -52,7 +73,8 @@
             android:fontFamily="@font/metropolis_regular"
             android:hint="User Name"
             android:inputType="textPersonName"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:elevation="5dp"/>
         <EditText
             android:layout_marginTop="10dp"
             android:id="@+id/emailEt_signUpPage"
@@ -67,7 +89,8 @@
             android:fontFamily="@font/metropolis_regular"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:elevation="5dp"/>
 
         <EditText
             android:layout_marginTop="10dp"
@@ -83,7 +106,8 @@
             android:fontFamily="@font/metropolis_regular"
             android:hint="Phone Number"
             android:inputType="phone"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:elevation="5dp"/>
 
 
         <EditText
@@ -99,7 +123,8 @@
             android:background="@drawable/edit_text_bg"
             android:fontFamily="@font/metropolis_regular"
             android:hint="Address"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:elevation="5dp"/>
 
         <TextView
             android:layout_marginTop="10dp"
@@ -122,6 +147,7 @@
             android:textColor="@color/mainText"
             android:background="@drawable/edit_text_bg"
             android:fontFamily="@font/metropolis_regular"
+            android:elevation="5dp"
 
             />
 
@@ -140,7 +166,8 @@
             android:fontFamily="@font/metropolis_regular"
             android:hint="Password"
             android:inputType="textPassword"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:elevation="5dp"/>
         <EditText
             android:layout_marginTop="10dp"
             android:id="@+id/cPassEt_signUpPage"
@@ -155,7 +182,8 @@
             android:fontFamily="@font/metropolis_regular"
             android:hint="Confirm Password"
             android:inputType="textPassword"
-            android:maxLines="1" />
+            android:maxLines="1"
+            android:elevation="5dp"/>
 
         <Button
             android:id="@+id/signUpBtn_signUpPage"

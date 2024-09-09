@@ -1,4 +1,4 @@
-package com.example.myapplication.fragments
+package com.example.myapplication.fragments.login
 
 import android.content.Context
 import android.os.Bundle
@@ -6,17 +6,13 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
-import com.example.myapplication.data.local.User
 import com.example.myapplication.data.local.UserDatabase
 import com.example.myapplication.databinding.FragmentLoginBinding
-import com.example.myapplication.databinding.FragmentRegisterBinding
-import com.google.android.material.textfield.TextInputLayout
 import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment(R.layout.fragment_login) {
@@ -63,6 +59,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                     if (user != null){
 
                         Toast.makeText(context, "Login Successful", Toast.LENGTH_SHORT).show()
+                        val fullname =  user.fullname
                         val username = user.username
                         val email = user.email
                         val phonenumber = user.phoneNumber
@@ -70,6 +67,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                         val sharedPreferences = requireContext().getSharedPreferences("userData" , Context.MODE_PRIVATE)
                         sharedPreferences.edit().apply{
+                            putString("fullname",fullname)
                             putString("username" , username)
                             putString("email",email)
                             putString("phonenumber",phonenumber)

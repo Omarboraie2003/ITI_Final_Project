@@ -22,4 +22,7 @@ interface UserDao {
     @Query(value = "SELECT * FROM user_info WHERE email = :email LIMIT 1")
     suspend fun getUserByEmail(email: String): User?
 
+    @Query("DELETE FROM user_info WHERE username = :userName")
+    suspend fun deleteUserByEmail(userName: String)
+
 }

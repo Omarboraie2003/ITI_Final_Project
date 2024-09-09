@@ -1,16 +1,12 @@
-package com.example.myapplication.fragments
+package com.example.myapplication.fragments.resigstraion
 
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import android.widget.EditText
-import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.myapplication.R
@@ -48,6 +44,7 @@ class RegisterFragment : Fragment() {
         }
 
         binding.signUpBtnSignUpPage.setOnClickListener {
+            val fullnameInput= binding.fullnameEtSignUpPage.text.toString()
             val usernameInput = binding.usernameEtSignUpPage.text.toString()
             val emailInput = binding.emailEtSignUpPage.text.toString()
             val phoneInput = binding.phoneEtSignUpPage.text.toString()
@@ -69,6 +66,12 @@ class RegisterFragment : Fragment() {
                     R.drawable.ic_check),
                     null)
             }*/
+
+            else if(fullnameInput.length < 6){
+
+                Toast.makeText(context, "Full Name must be at least 6 characters", Toast.LENGTH_SHORT).show()
+
+            }
 
             else if (!android.util.Patterns.PHONE.matcher(phoneInput).matches()) {
                 Toast.makeText(context, "Please enter a valid phone number", Toast.LENGTH_SHORT).show()
@@ -94,6 +97,7 @@ class RegisterFragment : Fragment() {
                     } else {
                         userDao.insertUser(
                             User(
+                                fullname = fullnameInput,
                                 username = usernameInput,
                                 email = emailInput,
                                 phoneNumber = phoneInput,
