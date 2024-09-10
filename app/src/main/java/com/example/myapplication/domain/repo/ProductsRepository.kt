@@ -1,32 +1,47 @@
-/*package com.example.myapplication.domain.repo
+package com.example.myapplication.domain.repo
 
+import android.util.Log
 import com.example.myapplication.data.local.ProductDao
-import com.example.myapplication.data.local.Product
+import com.example.myapplication.data.model.Product
 import com.example.myapplication.data.remote.ProductModule.apiService
 
 class ProductsRepository(private val productDao:ProductDao) {
           suspend fun fetchAndSaveProducts() {
-               try {
-                    // Fetch products from the remote API
-                    val products = apiService.getAllProducts()
+              try {
+                  // Fetch products from the remote API
+                  val products = apiService.getAllProducts()
 
-                    // Get the current favorite products from the database
-                    val favoriteProducts = productDao.getFavoriteProducts()
-                    val favoriteMap = favoriteProducts.associateBy { it.id }
+                  // Get the current favorite products from the database
+                  val favoriteProducts = productDao.getFavoriteProducts()
+                  val favoriteMap = favoriteProducts.associateBy { it.id }
 
-                    // Merge favorite status with fetched products
-                    val mergedProducts = products.products.map { product ->
-                         product.isFavorite = favoriteMap.containsKey(product.id)
-                         product
-                    }
+                  //Get the current inCart products from the database
+                  val inCartProducts =productDao.getInCartProducts()
+                  val incCartMap = inCartProducts.associateBy { it.id }
 
-                    // Save the merged products to the database
-                    if (mergedProducts.isNotEmpty()) {
-                         productDao.insertAllProducts(mergedProducts)
-                    }
-               } catch (e: Exception) {
-                   val offlineData=productDao.getFavoriteProducts()
-               }
+                  // Merge favorite status with fetched products
+                  val mergedFavouriteProducts = products.products.map { product ->
+                      product.isFavorite = favoriteMap.containsKey(product.id)
+                      product
+                  }
+                  // Merge inCart status with fetched products
+                  val mergedINCartProducts=products.products.map { product ->
+                      product.inCart=incCartMap.containsKey(product.id)
+                      product
+                  }
+                  // Save the merged products to the database
+                  if (mergedINCartProducts.isNotEmpty()) {
+                      productDao.insertAllProducts(mergedINCartProducts)
+                  }
+
+                  // Save the merged products to the database
+                  if (mergedFavouriteProducts.isNotEmpty()) {
+                      productDao.insertAllProducts(mergedFavouriteProducts)
+                  }
+              } catch (e: Exception) {
+                  Log.e("error", "fetchAndSaveProducts: $e", )
+                  // Handle exceptions (e.g., logging)
+              }
           }
 
           suspend fun getAllProducts(): List<Product> {
@@ -36,16 +51,27 @@ class ProductsRepository(private val productDao:ProductDao) {
           suspend fun getFavoriteProducts(): List<Product> {
                return productDao.getFavoriteProducts()
           }
+         suspend fun getInCartProducts(): List<Product> {
+           return productDao.getInCartProducts()
+         }
 
           suspend fun addProductToFavorites(product: Product) {
                product.isFavorite = true
                productDao.updateProduct(product)
           }
+         suspend fun addProductToInCart(product: Product) {
+           product.inCart = true
+           productDao.updateProduct(product)
+         }
 
-          suspend fun removeProductFromFavorites(product: Product) {
-               product.isFavorite = false
+          suspend fun removeProductFromInCart(product: Product) {
+               product.inCart = false
                productDao.updateProduct(product)
           }
+         suspend fun removeProductFromFavorites(product: Product) {
+              product.isFavorite = false
+             productDao.updateProduct(product)
+         }
 
           suspend fun deleteProduct(product: Product) {
                productDao.deleteProduct(product)
@@ -54,7 +80,5 @@ class ProductsRepository(private val productDao:ProductDao) {
           suspend fun deleteProductById(id: Int) {
                productDao.deleteProductById(id)
           }
+
      }
-
-
- */
