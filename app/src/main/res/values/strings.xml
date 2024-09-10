@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">Cartify</string>
     <string name="cart">Cart</string>
     <string name="favourits">Favourits</string>
     <string name="profile">Profile</string>
