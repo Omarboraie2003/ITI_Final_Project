@@ -13,6 +13,8 @@
     <string name="infoic">infoIc</string>
     <string name="infoIc">infoIc</string>
     <string name="infoicon">infoIcon</string>
+    <string name="smouha">smouha</string>
+    <string name="cartify">Cartify</string>
     <string-array name="gender_array">
         <item>Male</item>
         <item>Female</item>

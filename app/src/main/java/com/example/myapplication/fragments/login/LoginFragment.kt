@@ -64,6 +64,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                         val email = user.email
                         val phonenumber = user.phoneNumber
                         val address = user.address
+                        val gender=user.gender
 
                         val sharedPreferences = requireContext().getSharedPreferences("userData" , Context.MODE_PRIVATE)
                         sharedPreferences.edit().apply{
@@ -72,6 +73,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                             putString("email",email)
                             putString("phonenumber",phonenumber)
                             putString("address",address)
+                            putString("gender",gender)
                             putBoolean("isLoggedIn", true)
                             apply()
                         }

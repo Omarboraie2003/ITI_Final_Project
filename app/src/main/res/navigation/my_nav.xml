@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/profile_fragment"
-        android:name="com.example.myapplication.profile_fragment"
+        android:name="com.example.myapplication.presentation.profile_feature.FragmentProfile"
         android:label="fragment_profile_fragment"
         tools:layout="@layout/fragment_profile_fragment" >
 
