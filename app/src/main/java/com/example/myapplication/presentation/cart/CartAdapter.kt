@@ -13,7 +13,7 @@ import com.example.myapplication.presentation.favourite.FavouriteAdapter
 import com.example.myapplication.presentation.favourite.FavouriteAdapter.ProductViewHolder
 
 class CartAdapter (
-    private val products: List<Product>,
+    private val products: MutableList<Product>,
     private val onInCartClick: (Product) -> Unit
 ) : RecyclerView.Adapter<CartAdapter.ProductViewHolder>() {
 
@@ -49,5 +49,11 @@ class CartAdapter (
             )
             notifyItemRemoved(position)
         }
+    }
+    // Method to update the product list and refresh the adapter
+    fun updateProducts(newProducts: List<Product>) {
+        products.clear()
+        products.addAll(newProducts)
+        notifyDataSetChanged()
     }
     }

@@ -14,15 +14,15 @@
             android:orientation="horizontal"
             android:layoutDirection="rtl"
             android:padding="6dp">
-            <ImageButton
+          <!--  <ImageButton
                 android:id="@+id/btnSearch"
                 android:background="@color/primary"
                 android:layout_width="100dp"
                 android:layout_height="38dp"
-                android:src="@drawable/baseline_search_24" />
+                android:src="@drawable/baseline_search_24" />-->
             <TextView
                 android:id="@+id/openText"
-                android:layout_width="300dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 android:text="Our Products"

@@ -12,7 +12,7 @@ import com.example.myapplication.data.model.Product
 import com.example.myapplication.data.model.ProductDM
 
 class FavouriteAdapter (
-    private val products: List<Product>,
+    private val products:  MutableList<Product>,
     private val onFavoriteClick: (Product) -> Unit
 ) : RecyclerView.Adapter<FavouriteAdapter.ProductViewHolder>() {
 
@@ -50,4 +50,10 @@ class FavouriteAdapter (
             notifyItemRemoved(position)
            }
         }
+    // Method to update the product list and refresh the adapter
+    fun updateProducts(newProducts: List<Product>) {
+        products.clear()
+        products.addAll(newProducts)
+        notifyDataSetChanged()
+    }
     }

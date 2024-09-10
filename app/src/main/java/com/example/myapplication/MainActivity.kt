@@ -43,12 +43,12 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.cartIc -> {
                     navController.navigate(R.id.cart_fragment)
-                    supportActionBar?.title="My Cart"
+                    supportActionBar?.title="Cart"
                     true
                 }
                 R.id.favIc -> {
                     navController.navigate(R.id.favourites_fragment)
-                    supportActionBar?.title="Favorites"
+                    supportActionBar?.title="Favourites"
                     true
                 }
                 else -> false

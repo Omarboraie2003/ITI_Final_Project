@@ -41,14 +41,37 @@ class FragmentCart : Fragment() {
         repository = ProductsRepository(productDao)
         val viewModelFactory =CartViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[CartViewModel::class.java]
-        viewModel.inCartProducts.observe(viewLifecycleOwner) { products ->
-            productAdapter = CartAdapter(products) { product ->
-                if (product.inCart) {
-                    viewModel.removeProductFromInCart(product)
-                }
+
+
+        productAdapter = CartAdapter(mutableListOf()) { product ->
+            if (product.inCart) {
+                viewModel.removeProductFromInCart(product)
             }
-            binding.recyclerViewCart.adapter = productAdapter
         }
+        binding.recyclerViewCart.adapter = productAdapter
+
+        viewModel.inCartProducts.observe(viewLifecycleOwner) { products ->
+            if (products.isEmpty()) {
+                binding.recyclerViewCart.visibility = View.GONE
+                binding.noItem.visibility = View.VISIBLE
+            } else {
+                binding.recyclerViewCart.visibility = View.VISIBLE
+                binding.noItem.visibility = View.GONE
+                productAdapter.updateProducts(products)
+            }
+        }
+
+
+
+
+//        viewModel.inCartProducts.observe(viewLifecycleOwner) { products ->
+//            productAdapter = CartAdapter(products) { product ->
+//                if (product.inCart) {
+//                    viewModel.removeProductFromInCart(product)
+//                }
+//            }
+//            binding.recyclerViewCart.adapter = productAdapter
+//        }
         viewModel.loadInCartProducts()
     }
     override fun onDestroy() {

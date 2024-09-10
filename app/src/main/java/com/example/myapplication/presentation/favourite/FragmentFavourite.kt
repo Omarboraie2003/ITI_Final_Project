@@ -43,14 +43,33 @@ class FragmentFavourite : Fragment() {
         val viewModelFactory = FavouriteViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[FavouriteViewModel::class.java]
 
-        viewModel.favouriteProducts.observe(viewLifecycleOwner) { products ->
-            productAdapter = FavouriteAdapter(products) { product ->
-                if (product.isFavorite) {
-                    viewModel.removeProductFromFavorites(product)
-                }
+
+        productAdapter = FavouriteAdapter(mutableListOf()) { product ->
+            if (product.isFavorite) {
+                viewModel.removeProductFromFavorites(product)
             }
-          binding.recyclerView.adapter = productAdapter
         }
+        binding.recyclerView.adapter = productAdapter
+
+        viewModel.favouriteProducts.observe(viewLifecycleOwner) { products ->
+            if (products.isEmpty()) {
+                binding.recyclerView.visibility = View.GONE
+                binding.noItem.visibility = View.VISIBLE
+            } else {
+                binding.recyclerView.visibility = View.VISIBLE
+                binding.noItem.visibility = View.GONE
+                productAdapter.updateProducts(products)
+            }
+        }
+
+//        viewModel.favouriteProducts.observe(viewLifecycleOwner) { products ->
+//            productAdapter = FavouriteAdapter(products) { product ->
+//                if (product.isFavorite) {
+//                    viewModel.removeProductFromFavorites(product)
+//                }
+//            }
+//          binding.recyclerView.adapter = productAdapter
+//        }
         viewModel.loadFavouriteProducts()
 
     }

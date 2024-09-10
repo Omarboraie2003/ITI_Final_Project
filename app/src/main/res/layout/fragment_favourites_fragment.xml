@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/fav_adapter"/>
-    <ImageView
+   <!-- <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/noItem"
@@ -22,5 +22,19 @@
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"
         android:src="@drawable/empty_list"
-        />
+        />-->
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/noItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:visibility="gone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/heart_anim" />
 </androidx.constraintlayout.widget.ConstraintLayout>
