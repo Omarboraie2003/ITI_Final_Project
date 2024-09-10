@@ -7,21 +7,33 @@
 
     <fragment
         android:id="@+id/home_fragment"
-        android:name="com.example.myapplication.HomeFragment"
+        android:name="com.example.myapplication.presentation.home.HomeFragment"
         android:label="fragment_home_fragment"
         tools:layout="@layout/fragment_home_fragment" >
 
+        <action
+            android:id="@+id/action_home_fragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.myapplication.presentation.home.ProductDetailsFragment"
+        android:label="ProductDetailsFragment"
+        tools:layout="@layout/fragment_product_details">
+        <action
+            android:id="@+id/action_productDetailsFragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
     </fragment>
     <fragment
         android:id="@+id/favourites_fragment"
-        android:name="com.example.myapplication.FragmentFavourite"
+        android:name="com.example.myapplication.presentation.favourite.FragmentFavourite"
         android:label="fragment_favourites_fragment"
         tools:layout="@layout/fragment_favourites_fragment" >
 
     </fragment>
     <fragment
         android:id="@+id/cart_fragment"
-        android:name="com.example.myapplication.FragmentCart"
+        android:name="com.example.myapplication.presentation.cart.FragmentCart"
         android:label="fragment_cart_fragment"
         tools:layout="@layout/fragment_cart_fragment" >
 

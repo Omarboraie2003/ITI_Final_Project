@@ -3,7 +3,9 @@ package com.example.myapplication.data.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import androidx.versionedparcelable.VersionedParcelize
 
+@TypeConverters(Converter::class)
 @Entity(tableName = "products")
 data class Product(
     @PrimaryKey
@@ -17,7 +19,9 @@ data class Product(
     val rating: Double,
     val stock: Int,
     val title: String,
-    var isFavorite: Boolean = false
+    val thumbnail: String,
+    var isFavorite: Boolean = false,
+    var inCart:Boolean=false
 ) {
 
 }
