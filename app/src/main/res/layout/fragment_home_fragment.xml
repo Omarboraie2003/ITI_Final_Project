@@ -7,20 +7,31 @@
     android:orientation="vertical"
     tools:context=".presentation.home.HomeFragment">
 
-        <LinearLayout
-            android:id="@+id/linearHome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layoutDirection="rtl"
-            android:padding="6dp">
-          <!--  <ImageButton
-                android:id="@+id/btnSearch"
-                android:background="@color/primary"
-                android:layout_width="100dp"
-                android:layout_height="38dp"
-                android:src="@drawable/baseline_search_24" />-->
-            <TextView
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading"
+        />
+
+    <!-- <LinearLayout
+         android:id="@+id/linearHome"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal"
+         android:layoutDirection="rtl"
+         android:padding="6dp">-->
+       <!--  <ImageButton
+             android:id="@+id/btnSearch"
+             android:background="@color/primary"
+             android:layout_width="100dp"
+             android:layout_height="38dp"
+             android:src="@drawable/baseline_search_24" />-->
+        <!--    <TextView
                 android:id="@+id/openText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +44,7 @@
                 android:background="@color/primary"
                 android:elevation="4dp" />
 
-        </LinearLayout>
+        </LinearLayout> -->
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -46,16 +57,7 @@
     </LinearLayout>
 
 
-    <!--  <TextView
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="@string/home_fragment"
-         android:textSize="50sp"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="parent"
-         app:layout_constraintEnd_toEndOf="parent"
-         app:layout_constraintBottom_toBottomOf="parent"
-         />-->
+
 
 
 

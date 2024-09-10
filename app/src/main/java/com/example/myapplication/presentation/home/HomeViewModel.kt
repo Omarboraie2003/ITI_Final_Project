@@ -13,13 +13,30 @@ class HomeViewModel (private val repository: ProductsRepository) : ViewModel() {
     private val _products = MutableLiveData<List<Product>>()
     val products: LiveData<List<Product>> get() = _products
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
 
     fun fetchProducts() {
+        _isLoading.value = true
         viewModelScope.launch {
-            repository.fetchAndSaveProducts()
-            _products.value = repository.getAllProducts()
+            try {
+                repository.fetchAndSaveProducts()
+                  _products.value = repository.getAllProducts()
+//                val fetchedProducts = repository.getAllProducts()
+//                _products.value = fetchedProducts
+            }  finally {
+                _isLoading.value = false
+            }
         }
     }
+
+
+//    fun fetchProducts() {
+//        viewModelScope.launch {
+//            repository.fetchAndSaveProducts()
+//            _products.value = repository.getAllProducts()
+//        }
+//    }
 
     fun addProductToFavorites(product: Product) {
         viewModelScope.launch {

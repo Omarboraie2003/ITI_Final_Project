@@ -48,6 +48,9 @@ class ProductDetailsFragment : Fragment() {
         binding.imageClose.setOnClickListener {
             findNavController().navigateUp()
         }
+//        binding.buttonAddToCart.setOnClickListener {
+//
+//        }
         return binding.root
     }
 

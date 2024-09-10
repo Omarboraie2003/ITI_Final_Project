@@ -1,5 +1,6 @@
 package com.example.myapplication.presentation.favourite
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.data.local.ProductDao
 import com.example.myapplication.data.local.ProductDatabase
+import com.example.myapplication.data.model.Product
 import com.example.myapplication.databinding.FragmentFavouritesFragmentBinding
 import com.example.myapplication.domain.repo.ProductsRepository
 
@@ -46,7 +48,8 @@ class FragmentFavourite : Fragment() {
 
         productAdapter = FavouriteAdapter(mutableListOf()) { product ->
             if (product.isFavorite) {
-                viewModel.removeProductFromFavorites(product)
+                showDeleteConfirmationDialog(product)
+             //   viewModel.removeProductFromFavorites(product)
             }
         }
         binding.recyclerView.adapter = productAdapter
@@ -73,6 +76,22 @@ class FragmentFavourite : Fragment() {
         viewModel.loadFavouriteProducts()
 
     }
+    private fun showDeleteConfirmationDialog(product: Product) {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Delete Item")
+            .setMessage("Are you sure you want to delete this product from the list?")
+            .setPositiveButton("Yes") { dialog, _ ->
+                // If "Yes" is clicked, remove the product from the list
+                viewModel.removeProductFromFavorites(product)
+                dialog.dismiss()
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                // If "No" is clicked, just dismiss the dialog
+                dialog.dismiss()
+            }
+            .create().show()
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
