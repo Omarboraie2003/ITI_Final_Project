@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.myapplication.R
@@ -59,6 +60,18 @@ class HomeFragment : Fragment() {
                     } else {
                         viewModel.addProductToCart(product)
                     }
+                },
+                onProductClick = { product ->
+                    // Handle product click and navigate to details fragment
+                    val bundle = Bundle().apply {
+                        putString("productName", product.title)
+                        putString("productDescription", product.description)
+                        putDouble("productPrice", product.price)
+                        putString("productCategory" , product.category)
+                        putString("productBrand",product.brand)
+                        putString("productImage", product.thumbnail)
+                    }
+                    findNavController().navigate(R.id.action_home_fragment_to_productDetailsFragment, bundle)
                 }
             )
             binding.recyclerview.adapter = productAdapter

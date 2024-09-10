@@ -11,6 +11,9 @@
         android:label="fragment_home_fragment"
         tools:layout="@layout/fragment_home_fragment" >
 
+        <action
+            android:id="@+id/action_home_fragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/favourites_fragment"
@@ -38,4 +41,13 @@
         android:name="com.example.myapplication.FragmentInfo"
         android:label="fragment_info"
         tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/productDetailsFragment"
+        android:name="com.example.myapplication.presentation.home.ProductDetailsFragment"
+        android:label="ProductDetailsFragment"
+        tools:layout="@layout/fragment_product_details">
+        <action
+            android:id="@+id/action_productDetailsFragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+    </fragment>
 </navigation>

@@ -13,7 +13,8 @@ import com.example.myapplication.data.model.Product
 class HomeAdapter (
     private val products: List<Product>,
     private val onFavoriteClick: (Product) -> Unit,
-    private val onInCartClick: (Product) -> Unit
+    private val onInCartClick: (Product) -> Unit,
+    private val onProductClick: (Product) -> Unit
 ) : RecyclerView.Adapter<HomeAdapter.ProductViewHolder>() {
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -22,6 +23,7 @@ class HomeAdapter (
         val productImage: ImageView = itemView.findViewById(R.id.product_image)
         val favoriteButton: ImageView = itemView.findViewById(R.id.overlay_iconHeart)
         val inCartButton:ImageView = itemView.findViewById(R.id.overlay_iconCart)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
@@ -54,6 +56,9 @@ class HomeAdapter (
             onFavoriteClick(product)
             // Update the heart icon immediately after the click
             notifyItemChanged(position)
+        }
+        holder.itemView.setOnClickListener {
+            onProductClick(product)
         }
     }
 
