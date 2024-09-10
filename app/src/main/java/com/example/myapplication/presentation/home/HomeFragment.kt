@@ -40,13 +40,30 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupRecyclerView()
+        setupViewModel()
+        observeProducts()
+        observeLoadingState()
+
+        viewModel.fetchProducts()
+    }
+    private fun setupRecyclerView() {
         binding.recyclerview.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+    }
+
+
+    private fun setupViewModel() {
         productDao = ProductDatabase.getDatabase(requireContext()).productDao()
-       repository = ProductsRepository(productDao)
-        val viewModelFactory =HomeViewModelFactory(repository)
+        repository = ProductsRepository(productDao)
+        val viewModelFactory = HomeViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[HomeViewModel::class.java]
+    }
+
+
+    private fun observeProducts() {
         viewModel.products.observe(viewLifecycleOwner) { products ->
-            productAdapter = HomeAdapter(products,
+            productAdapter = HomeAdapter(
+                products,
                 onFavoriteClick = { product ->
                     if (product.isFavorite) {
                         viewModel.removeProductFromFavorites(product)
@@ -62,23 +79,37 @@ class HomeFragment : Fragment() {
                     }
                 },
                 onProductClick = { product ->
-                    // Handle product click and navigate to details fragment
-                    val bundle = Bundle().apply {
-                        putString("productName", product.title)
-                        putString("productDescription", product.description)
-                        putDouble("productPrice", product.price)
-                        putString("productCategory" , product.category)
-                        putString("productBrand",product.brand)
-                        putString("productImage", product.thumbnail)
-                    }
-                    findNavController().navigate(R.id.action_home_fragment_to_productDetailsFragment, bundle)
+                    navigateToProductDetails(product)
                 }
             )
             binding.recyclerview.adapter = productAdapter
         }
-        viewModel.fetchProducts()
     }
 
+
+    private fun observeLoadingState() {
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            if (isLoading) {
+                binding.loading.visibility = View.VISIBLE
+                binding.loading.playAnimation()
+            } else {
+                binding.loading.visibility = View.GONE
+                binding.loading.pauseAnimation()
+            }
+        }
+    }
+
+    private fun navigateToProductDetails(product: Product) {
+        val bundle = Bundle().apply {
+            putString("productName", product.title)
+            putString("productDescription", product.description)
+            putDouble("productPrice", product.price)
+            putString("productCategory", product.category)
+            putString("productBrand", product.brand)
+            putString("productImage", product.thumbnail)
+        }
+        findNavController().navigate(R.id.action_home_fragment_to_productDetailsFragment, bundle)
+    }
 
 
     override fun onDestroy() {

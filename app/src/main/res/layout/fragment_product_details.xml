@@ -152,7 +152,7 @@
 
         </LinearLayout>
 
-        <!--<androidx.appcompat.widget.AppCompatButton
+      <!--  <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/buttonAddToCart"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
             android:layout_marginBottom="20dp"
             android:text="Add To Cart"
             android:textColor="@color/white"
-            tools:ignore="MissingClass" /> -->
+            tools:ignore="MissingClass" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

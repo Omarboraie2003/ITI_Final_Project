@@ -1,5 +1,6 @@
 package com.example.myapplication.presentation.cart
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.myapplication.R
 import com.example.myapplication.data.local.ProductDao
 import com.example.myapplication.data.local.ProductDatabase
+import com.example.myapplication.data.model.Product
 import com.example.myapplication.databinding.FragmentCartFragmentBinding
 import com.example.myapplication.databinding.FragmentFavouritesFragmentBinding
 import com.example.myapplication.domain.repo.ProductsRepository
@@ -45,7 +47,8 @@ class FragmentCart : Fragment() {
 
         productAdapter = CartAdapter(mutableListOf()) { product ->
             if (product.inCart) {
-                viewModel.removeProductFromInCart(product)
+                showDeleteConfirmationDialog(product)
+               // viewModel.removeProductFromInCart(product)
             }
         }
         binding.recyclerViewCart.adapter = productAdapter
@@ -62,17 +65,24 @@ class FragmentCart : Fragment() {
         }
 
 
-
-
-//        viewModel.inCartProducts.observe(viewLifecycleOwner) { products ->
-//            productAdapter = CartAdapter(products) { product ->
-//                if (product.inCart) {
-//                    viewModel.removeProductFromInCart(product)
-//                }
-//            }
-//            binding.recyclerViewCart.adapter = productAdapter
-//        }
         viewModel.loadInCartProducts()
+    }
+
+
+    private fun showDeleteConfirmationDialog(product: Product) {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Delete Item")
+            .setMessage("Are you sure you want to delete this product from the list?")
+            .setPositiveButton("Yes") { dialog, _ ->
+                // If "Yes" is clicked, remove the product from the list
+                viewModel.removeProductFromInCart(product)
+                dialog.dismiss()
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                // If "No" is clicked, just dismiss the dialog
+                dialog.dismiss()
+            }
+            .create().show()
     }
     override fun onDestroy() {
         super.onDestroy()
