@@ -32,6 +32,7 @@ class FragmentProfile : Fragment() {
         val sharedPreferences = requireContext().getSharedPreferences("userData", Context.MODE_PRIVATE)
         val username = sharedPreferences.getString("username","")
         val email = sharedPreferences.getString("email", "")
+        val fullname = sharedPreferences.getString("fullname","")
         val phoneNumber = sharedPreferences.getString("phonenumber", "")
         val address = sharedPreferences.getString("address", "")
         val gender=sharedPreferences.getString("gender","")
@@ -39,6 +40,7 @@ class FragmentProfile : Fragment() {
         // Set the retrieved values to TextViews using view binding
         binding.userNameTv.text = username
         binding.emailAddressTv.text = email
+        binding.name.text = fullname
         binding.number.text = phoneNumber
         binding.addressContent.text = address
         binding.genderType.text=gender
