@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -107,6 +108,8 @@ class HomeFragment : Fragment() {
             putString("productCategory", product.category)
             putString("productBrand", product.brand)
             putString("productImage", product.thumbnail)
+            putDouble("productDisc",product.discountPercentage)
+            putDouble("productRating", product.rating)
         }
         findNavController().navigate(R.id.action_home_fragment_to_productDetailsFragment, bundle)
     }
@@ -115,6 +118,11 @@ class HomeFragment : Fragment() {
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.title = "Home" // Set your fragment's title here
     }
 
 

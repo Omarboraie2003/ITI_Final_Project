@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.myapplication.R
@@ -21,6 +22,7 @@ class ProductDetailsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = FragmentProductDetailsBinding.inflate(inflater)
 
 
@@ -30,12 +32,17 @@ class ProductDetailsFragment : Fragment() {
         val productCategory = arguments?.getString("productCategory")
         val productBrand = arguments?.getString("productBrand")
         val productImage = arguments?.getString("productImage")
+        val productDisc = arguments?.getDouble("productDisc")
+        val productRating = arguments?.getDouble("productRating")
 
         binding.tvProductName.text = productName
         binding.tvProductDescription.text = productDescription
         binding.tvProductPrice.text = "$productPrice $"
         binding.tvProductCategory.text = productCategory
         binding.tvProductBrand.text = productBrand
+        binding.tvrating.text = "$productRating "
+        binding.tvProductdisc.text = "$productDisc % "
+
         //val imageView = view?.findViewById<ImageView>(R.id.viewPagerProductImages)
 
         productImage?.let {
@@ -56,5 +63,9 @@ class ProductDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.title = "Details" // Set your fragment's title here
     }
 }

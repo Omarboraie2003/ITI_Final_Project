@@ -76,6 +76,9 @@
 
         </LinearLayout>
 
+
+
+
         <TextView
             android:id="@+id/tvProductDescription"
             android:layout_width="wrap_content"
@@ -124,7 +127,7 @@
                     android:textColor="@color/black"
                     android:textSize="27sp"
                     android:drawableLeft="@drawable/baseline_category_24"
-                    android:drawablePadding="5dp"
+                    android:drawablePadding="3dp"
                     android:text="Category" />
 
 
@@ -145,27 +148,81 @@
                     style="@style/TextAppearance.MaterialComponents.Headline4"
                     android:textColor="@color/black"
                     android:drawableLeft="@drawable/baseline_branding_watermark_24"
-                    android:drawablePadding="5dp"
+                    android:drawablePadding="3dp"
                     android:text="Brand" />
 
             </LinearLayout>
 
         </LinearLayout>
 
-      <!--  <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonAddToCart"
-            android:layout_width="300dp"
+
+
+        <LinearLayout
+            android:id="@+id/productdetails2"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_bg"
-            app:layout_constraintTop_toBottomOf="@id/linearProductPref"
+            android:orientation="horizontal"
             app:layout_constraintStart_toStartOf="@id/linearProductPref"
             app:layout_constraintEnd_toEndOf="@id/linearProductPref"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginTop="40dp"
-            android:layout_marginBottom="20dp"
-            android:text="Add To Cart"
-            android:textColor="@color/white"
-            tools:ignore="MissingClass" />-->
+            app:layout_constraintTop_toBottomOf="@id/linearProductPref"
+            android:layout_marginTop="30dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvrating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.MaterialComponents.Headline4"
+                    android:textColor="@color/black"
+                    android:textSize="27sp"
+                    android:drawableLeft="@drawable/baseline_stars_24"
+                    android:drawablePadding="3dp"
+                    android:text="Rating" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:id="@+id/tvProductdisc"
+                    android:textSize="27sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextAppearance.MaterialComponents.Headline4"
+                    android:textColor="@color/black"
+                    android:drawableLeft="@drawable/baseline_discount_24"
+                    android:drawablePadding="3dp"
+                    android:text="Discount" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!--  <androidx.appcompat.widget.AppCompatButton
+              android:id="@+id/buttonAddToCart"
+              android:layout_width="300dp"
+              android:layout_height="wrap_content"
+              android:background="@drawable/btn_bg"
+              app:layout_constraintTop_toBottomOf="@id/linearProductPref"
+              app:layout_constraintStart_toStartOf="@id/linearProductPref"
+              app:layout_constraintEnd_toEndOf="@id/linearProductPref"
+              app:layout_constraintBottom_toBottomOf="parent"
+              android:layout_marginTop="40dp"
+              android:layout_marginBottom="20dp"
+              android:text="Add To Cart"
+              android:textColor="@color/white"
+              tools:ignore="MissingClass" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,12 +32,11 @@
        android:id="@+id/toolbar"
        android:layout_width="match_parent"
        android:layout_height="?actionBarSize"
-       android:background="@color/primary"
+       android:background="@color/background"
        app:layout_constraintTop_toTopOf="parent"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintEnd_toEndOf="parent"
        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView"
-       app:menu="@menu/action_bar_menu"
        />
 
 

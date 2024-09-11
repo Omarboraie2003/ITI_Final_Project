@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/accountOptionsFragment">
+    app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/home_fragment"
@@ -45,11 +45,6 @@
         tools:layout="@layout/fragment_profile_fragment" >
 
     </fragment>
-    <fragment
-        android:id="@+id/fragmentInfo"
-        android:name="com.example.myapplication.FragmentInfo"
-        android:label="fragment_info"
-        tools:layout="@layout/fragment_info" />
 
     <fragment
         android:id="@+id/loginFragment"
@@ -76,20 +71,6 @@
         <action
             android:id="@+id/action_registerFragment_to_home_fragment"
             app:destination="@id/home_fragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/accountOptionsFragment"
-        android:name="com.example.myapplication.fragments.login.ChoiceFragment"
-        android:label="AccountOptionsFragment"
-        tools:layout="@layout/fragment_choice">
-        <action
-            android:id="@+id/action_accountOptionsFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            />
-        <action
-            android:id="@+id/action_accountOptionsFragment_to_registerFragment"
-            app:destination="@id/registerFragment"
-            />
     </fragment>
 
 </navigation>
