@@ -47,7 +47,7 @@ class CartAdapter (
             holder.InCartButton.setImageResource(
                 if (product.inCart) R.drawable.baseline_shopping_cart_24 else R.drawable.ic_shopping_cart
             )
-            notifyItemRemoved(position)
+        //    notifyItemRemoved(position)
         }
     }
     // Method to update the product list and refresh the adapter
