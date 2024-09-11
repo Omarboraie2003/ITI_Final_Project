@@ -47,7 +47,7 @@ class FavouriteAdapter (
             holder.favoriteButton.setImageResource(
                 if (product.isFavorite) R.drawable.ic_heart_filled else R.drawable.ic_heart_outline
             )
-            notifyItemRemoved(position)
+         //   notifyItemRemoved(position)
            }
         }
     // Method to update the product list and refresh the adapter
