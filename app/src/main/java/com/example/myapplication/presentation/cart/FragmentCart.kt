@@ -6,16 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.myapplication.R
 import com.example.myapplication.data.local.ProductDao
 import com.example.myapplication.data.local.ProductDatabase
 import com.example.myapplication.databinding.FragmentCartFragmentBinding
-import com.example.myapplication.databinding.FragmentFavouritesFragmentBinding
 import com.example.myapplication.domain.repo.ProductsRepository
-import com.example.myapplication.presentation.favourite.FavouriteAdapter
-import com.example.myapplication.presentation.favourite.FavouriteViewModel
-import com.example.myapplication.presentation.favourite.FavouriteViewModelFactory
 
 
 class FragmentCart : Fragment() {
@@ -64,16 +60,25 @@ class FragmentCart : Fragment() {
 
 
 
-//        viewModel.inCartProducts.observe(viewLifecycleOwner) { products ->
-//            productAdapter = CartAdapter(products) { product ->
-//                if (product.inCart) {
-//                    viewModel.removeProductFromInCart(product)
-//                }
-//            }
-//            binding.recyclerViewCart.adapter = productAdapter
-//        }
+
         viewModel.loadInCartProducts()
+        binding.btnCheckOut.setOnClickListener {
+           navigateToCheckout()
+        }
+
+
     }
+
+    private fun navigateToCheckout() {
+        val productNames = viewModel.inCartProducts.value?.map { it.title }?.toTypedArray() ?: arrayOf()
+        val productPrice = viewModel.inCartProducts.value?.map { it.price.toFloat() }?.toFloatArray() ?: floatArrayOf() // Use toFloatArray()
+
+        val action = FragmentCartDirections.actionCartFragmentToCheckoutFragment(productNames=productNames,
+            productPrices = productPrice
+        )
+        findNavController().navigate(action)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

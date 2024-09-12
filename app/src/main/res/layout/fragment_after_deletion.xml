@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".presentation.profile_feature.AfterDeletionFragment">
+
+
+    <TextView
+        android:id="@+id/dearTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:text="Dear"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/userNameTv_AfterDeletionFragment"
+        app:layout_constraintEnd_toStartOf="@+id/userNameTv_AfterDeletionFragment"
+        app:layout_constraintTop_toTopOf="@+id/userNameTv_AfterDeletionFragment" />
+
+    <Button
+        android:id="@+id/cancelDeletionProcessBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/proccedToDeletionBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/proccedToDeletionBtn" />
+
+    <Button
+        android:id="@+id/proccedToDeletionBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/background"
+        android:text="Delete"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cancelDeletionProcessBtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/feedbackTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:lineSpacingExtra="8dp"
+        android:text="For sending your feedback please use this email:cartify@gmail.com"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/messageTv" />
+
+    <TextView
+        android:id="@+id/messageTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:lineSpacingExtra="8dp"
+        android:text="We are truly sorry to see you go. Your feedback is important to us, and we would greatly appreciate any insights you could share about your experience with our app."
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameTv_AfterDeletionFragment" />
+
+    <TextView
+        android:id="@+id/userNameTv_AfterDeletionFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unsatisfiedImage" />
+
+    <ImageView
+        android:id="@+id/sadImage"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginBottom="75dp"
+        android:src="@drawable/unsatisfied"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/feedbackTv" />
+
+    <ImageView
+        android:id="@+id/unsatisfiedImage"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/customer_experience"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

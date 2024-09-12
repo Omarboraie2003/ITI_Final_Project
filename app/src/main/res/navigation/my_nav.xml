@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_home_fragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_profile_fragment"
+            app:destination="@id/profile_fragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
@@ -37,6 +40,9 @@
         android:label="fragment_cart_fragment"
         tools:layout="@layout/fragment_cart_fragment" >
 
+        <action
+            android:id="@+id/action_cart_fragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/profile_fragment"
@@ -44,6 +50,9 @@
         android:label="fragment_profile_fragment"
         tools:layout="@layout/fragment_profile_fragment" >
 
+        <action
+            android:id="@+id/action_profile_fragment_to_afterDeletionFragment"
+            app:destination="@id/afterDeletionFragment" />
     </fragment>
     <fragment
         android:id="@+id/fragmentInfo"
@@ -91,5 +100,26 @@
             app:destination="@id/registerFragment"
             />
     </fragment>
+    <fragment
+        android:id="@+id/afterDeletionFragment"
+        android:name="com.example.myapplication.presentation.profile_feature.AfterDeletionFragment"
+        android:label="fragment_after_deletion"
+        tools:layout="@layout/fragment_after_deletion" />
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.myapplication.presentation.checkout.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <argument
+            android:name="productNames"
+            app:argType="string[]" />
+        <argument
+            android:name="productPrices"
+            app:argType="float[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/afterCheckOutFragment"
+        android:name="com.example.myapplication.presentation.checkout.AfterCheckOutFragment"
+        android:label="AfterCheckOutFragment" />
 
 </navigation>

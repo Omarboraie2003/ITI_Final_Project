@@ -23,6 +23,6 @@ interface UserDao {
     suspend fun getUserByEmail(email: String): User?
 
     @Query("DELETE FROM user_info WHERE username = :userName")
-    suspend fun deleteUserByEmail(userName: String)
+    suspend fun deleteUserByUserName(userName: String)
 
 }

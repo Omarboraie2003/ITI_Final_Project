@@ -25,6 +25,9 @@ interface ProductDao {
     @Query("SELECT * FROM products WHERE inCart = 1")
     suspend fun getInCartProducts(): List<Product>
 
+    @Query("DELETE FROM products WHERE inCart = 1") // Replace "cart" with your actual cart table name
+    suspend fun clearCart()
+
     @Update
     suspend fun updateProduct(product: Product)
 
