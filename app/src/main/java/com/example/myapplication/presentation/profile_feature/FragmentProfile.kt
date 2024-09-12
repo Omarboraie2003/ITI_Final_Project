@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -45,7 +46,7 @@ class FragmentProfile : Fragment() {
         // Set the retrieved values to TextViews using view binding
         binding.userNameTv.text = username
         binding.emailAddressTv.text = email
-        binding.name.text = fullname
+        binding.nameTv.text = fullname
         binding.number.text = phoneNumber
         binding.addressContent.text = address
         binding.genderType.text=gender
@@ -72,7 +73,7 @@ class FragmentProfile : Fragment() {
             .setMessage("Are you sure you want to log out?")
             .setPositiveButton("Yes") { dialog, _ ->
                 // If "Yes" is clicked, navigate to the account options fragment
-                navController.navigate(R.id.accountOptionsFragment)
+                navController.navigate(R.id.loginFragment)
                 dialog.dismiss()
             }
             .setNegativeButton("No") { dialog, _ ->

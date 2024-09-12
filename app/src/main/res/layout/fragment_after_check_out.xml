@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/textAd"
+    android:fillViewport="true"
     tools:context=".presentation.checkout.AfterCheckOutFragment">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/textAd"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
 
 
     <Button
@@ -63,6 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="44dp"
         android:text="TextView"
+        android:gravity="center"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
@@ -76,8 +84,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="40dp"
-        android:text="Your oreder will be delivered  shortly ro the following address :"
+        android:text="Your Order Will Be Delivered Shortly To The Following Address :"
         android:textSize="16sp"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/thankingCustomerTv" />
 
@@ -89,8 +98,10 @@
         android:layout_marginTop="96dp"
         android:text="Thank you for your purchase! 🎉\n\nYour order has been successfully placed.  We appreciate your business and look forward to serving you again. You will receive a confirmation email shortly with the details of your order. If you have any questions, feel free to contact our support team.\n\nEnjoy your shopping experience!"
         android:textSize="18sp"
+        android:layout_marginBottom="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

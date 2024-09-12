@@ -79,6 +79,33 @@ class FragmentCart : Fragment() {
 
 
     }
+
+    private fun showDeleteConfirmationDialog(product: Product) {
+        AlertDialog.Builder(requireContext())
+            .setTitle("Delete Item")
+            .setMessage("Are you sure you want to delete this product from the list?")
+            .setPositiveButton("Yes") { dialog, _ ->
+                // If "Yes" is clicked, remove the product from the list
+                viewModel.removeProductFromInCart(product)
+                dialog.dismiss()
+            }
+            .setNegativeButton("No") { dialog, _ ->
+                // If "No" is clicked, just dismiss the dialog
+                dialog.dismiss()
+            }
+            .create().show()
+    }
+
+    private fun navigateToCheckout() {
+        val productNames = viewModel.inCartProducts.value?.map { it.title }?.toTypedArray() ?: arrayOf()
+        val productPrice = viewModel.inCartProducts.value?.map { it.price.toFloat() }?.toFloatArray() ?: floatArrayOf() // Use toFloatArray()
+
+        val action = FragmentCartDirections.actionCartFragmentToCheckoutFragment(productNames=productNames,
+            productPrices = productPrice
+        )
+        findNavController().navigate(action)
+    }
+
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

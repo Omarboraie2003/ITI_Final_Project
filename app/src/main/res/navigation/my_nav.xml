@@ -82,18 +82,33 @@
             app:destination="@id/home_fragment" />
     </fragment>
     <fragment
-        android:id="@+id/accountOptionsFragment"
-        android:name="com.example.myapplication.fragments.login.ChoiceFragment"
-        android:label="AccountOptionsFragment"
-        tools:layout="@layout/fragment_choice">
+        android:id="@+id/afterDeletionFragment"
+        android:name="com.example.myapplication.presentation.profile_feature.AfterDeletionFragment"
+        android:label="fragment_after_deletion"
+        tools:layout="@layout/fragment_after_deletion" />
+    <fragment
+        android:id="@+id/checkoutFragment"
+        android:name="com.example.myapplication.presentation.checkout.CheckoutFragment"
+        android:label="fragment_checkout"
+        tools:layout="@layout/fragment_checkout" >
+        <argument
+            android:name="productNames"
+            app:argType="string[]" />
+        <argument
+            android:name="productPrices"
+            app:argType="float[]" />
         <action
-            android:id="@+id/action_accountOptionsFragment_to_loginFragment"
-            app:destination="@id/loginFragment"
-            />
-        <action
-            android:id="@+id/action_accountOptionsFragment_to_registerFragment"
-            app:destination="@id/registerFragment"
-            />
+            android:id="@+id/action_checkoutFragment_to_afterCheckOutFragment"
+            app:destination="@id/afterCheckOutFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/afterCheckOutFragment"
+        android:name="com.example.myapplication.presentation.checkout.AfterCheckOutFragment"
+        android:label="AfterCheckOutFragment" >
+        <action
+            android:id="@+id/action_afterCheckOutFragment_to_home_fragment"
+            app:destination="@id/home_fragment" />
+    </fragment>
+
 
 </navigation>

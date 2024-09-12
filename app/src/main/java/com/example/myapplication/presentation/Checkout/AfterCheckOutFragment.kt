@@ -33,34 +33,41 @@ class AfterCheckOutFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.hide()
 
         // Hide the BottomNavigationView
-        val bottomNavBar = requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val bottomNavBar =
+            requireActivity().findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavBar.visibility = View.GONE
 
         val navController = findNavController()
-        val sharedPreferences = requireContext().getSharedPreferences("userData", Context.MODE_PRIVATE)
+        val sharedPreferences =
+            requireContext().getSharedPreferences("userData", Context.MODE_PRIVATE)
         val userName = sharedPreferences.getString("username", "")
         val address = sharedPreferences.getString("address", "")
         binding.usernameTv.text = userName
         binding.addressTvAfterPurchase.text = address
 
         binding.continueShoppingBtn.setOnClickListener {
-            val navOptions = NavOptions.Builder()
+            /*val navOptions = NavOptions.Builder()
                 .setPopUpTo(R.id.home_fragment, true) // Clear the back stack up to HomeFragment
-                .build()
-            findNavController().navigate(R.id.home_fragment, null, navOptions)
+                .build()*/
+            findNavController().navigate(R.id.home_fragment)
         }
 
         // Handle the back button press
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
-            val navOptions = NavOptions.Builder()
+            /*val navOptions = NavOptions.Builder()
                 .setPopUpTo(R.id.home_fragment, true) // Clear the back stack up to HomeFragment
-                .build()
-            findNavController().navigate(R.id.home_fragment, null, navOptions)
-        }
-    }
+                .build()*/
 
+            findNavController().navigateUp()
+            //findNavController().navigate(R.id.home_fragment)
+        }
+
+        }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 }
+
+
+

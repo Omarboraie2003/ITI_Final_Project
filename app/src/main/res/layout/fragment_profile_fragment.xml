@@ -274,7 +274,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:drawableStart="@drawable/baseline_favorite_24"
+                    android:drawableStart="@drawable/baseline_phone_24_fill"
                     android:drawablePadding="8dp"
                     android:text="Phone number:"
                     android:textSize="20sp"
