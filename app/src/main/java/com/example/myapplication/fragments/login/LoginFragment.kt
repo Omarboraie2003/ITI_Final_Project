@@ -92,6 +92,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
             requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
 
                 requireActivity().finish()
+
             }
 
         //requireActivity().finish()
