@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
          */
 
             val hideBottomNavFraments =
-                listOf(R.id.accountOptionsFragment, R.id.loginFragment, R.id.registerFragment)
+                listOf(R.id.loginFragment, R.id.registerFragment)
 
 
             navController.addOnDestinationChangedListener { _, destination, _ ->

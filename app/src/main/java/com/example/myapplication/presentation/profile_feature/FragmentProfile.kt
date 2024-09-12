@@ -62,7 +62,7 @@ class FragmentProfile : Fragment() {
             .setMessage("Are you sure you want to log out?")
             .setPositiveButton("Yes") { dialog, _ ->
                 // If "Yes" is clicked, navigate to the account options fragment
-                navController.navigate(R.id.accountOptionsFragment)
+                navController.navigate(R.id.loginFragment)
                 dialog.dismiss()
             }
             .setNegativeButton("No") { dialog, _ ->

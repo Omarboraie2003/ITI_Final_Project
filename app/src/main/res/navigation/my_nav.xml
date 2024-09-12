@@ -54,7 +54,7 @@
         <action
             android:id="@+id/action_loginFragment_to_registerFragment"
             app:destination="@id/registerFragment"
-            app:popUpTo="@id/accountOptionsFragment" />
+            />
         <action
             android:id="@+id/action_loginFragment_to_home_fragment"
             app:destination="@id/home_fragment" />
@@ -67,7 +67,7 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:popUpTo="@id/accountOptionsFragment" />
+            />
         <action
             android:id="@+id/action_registerFragment_to_home_fragment"
             app:destination="@id/home_fragment" />
