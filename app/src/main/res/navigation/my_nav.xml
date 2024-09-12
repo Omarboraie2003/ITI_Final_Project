@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_home_fragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_home_fragment_to_profile_fragment"
+            app:destination="@id/profile_fragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
@@ -37,6 +40,9 @@
         android:label="fragment_cart_fragment"
         tools:layout="@layout/fragment_cart_fragment" >
 
+        <action
+            android:id="@+id/action_cart_fragment_to_checkoutFragment"
+            app:destination="@id/checkoutFragment" />
     </fragment>
     <fragment
         android:id="@+id/profile_fragment"
@@ -44,6 +50,9 @@
         android:label="fragment_profile_fragment"
         tools:layout="@layout/fragment_profile_fragment" >
 
+        <action
+            android:id="@+id/action_profile_fragment_to_afterDeletionFragment"
+            app:destination="@id/afterDeletionFragment" />
     </fragment>
 
     <fragment
@@ -71,6 +80,20 @@
         <action
             android:id="@+id/action_registerFragment_to_home_fragment"
             app:destination="@id/home_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountOptionsFragment"
+        android:name="com.example.myapplication.fragments.login.ChoiceFragment"
+        android:label="AccountOptionsFragment"
+        tools:layout="@layout/fragment_choice">
+        <action
+            android:id="@+id/action_accountOptionsFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            />
+        <action
+            android:id="@+id/action_accountOptionsFragment_to_registerFragment"
+            app:destination="@id/registerFragment"
+            />
     </fragment>
 
 </navigation>
