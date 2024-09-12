@@ -2,8 +2,7 @@
 <img src = "https://github.com/user-attachments/assets/0cad1d6e-73e1-42ca-909b-f722a4f7df56" width = "200"/>
   <img src = "https://github.com/user-attachments/assets/37162723-a156-47e7-9fe9-d9bd5d7148ed" width = "200"/>
   <img src = "https://github.com/user-attachments/assets/831f52ba-06ee-4c72-b90a-7a6f708ebae8" width = "200"/>
-  
- <br> _login and registration with secure validation._<br/>
+ <br> login and registration with secure validation.<br/>
  
 </div>
 <div>
@@ -17,6 +16,6 @@
   <img src = "https://github.com/user-attachments/assets/496d9360-e82e-467d-a463-72bbaff01179" width = "200"/>
   <img src = "https://github.com/user-attachments/assets/5c101be4-e9e5-4979-b04c-df8ce2ed3989" width = "200"/>
   <img src = "https://github.com/user-attachments/assets/8b369be0-1282-48e4-9364-4a5e6f6835e0" width = "200"/>
-  _Main Features in App._
+  <br> Main Features in App.<br/>
   
 </div>
