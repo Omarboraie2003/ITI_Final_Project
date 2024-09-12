@@ -1,3 +1,4 @@
+get started with auth features 
 <div>
 <img src = "https://github.com/user-attachments/assets/0cad1d6e-73e1-42ca-909b-f722a4f7df56" width = "200"/>
   <img src = "https://github.com/user-attachments/assets/37162723-a156-47e7-9fe9-d9bd5d7148ed" width = "200"/>
