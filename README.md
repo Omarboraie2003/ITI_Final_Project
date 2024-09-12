@@ -6,6 +6,8 @@ get started with auth features
  <br> login and registration with secure validation.<br/>
  
 </div>
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
 
 get started with main features in the app
 
