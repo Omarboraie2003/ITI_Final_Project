@@ -6,6 +6,9 @@ get started with auth features
  <br> login and registration with secure validation.<br/>
  
 </div>
+
+get started with main features in the app
+
 <div>
   <img src = "https://github.com/user-attachments/assets/092fe65c-bb27-47d9-930f-12e2a3b796fc" width = "200"/>
   <img src = "https://github.com/user-attachments/assets/837b74b4-870d-41dc-a240-c1e50f852d7f" width = "200"/>
