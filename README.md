@@ -21,6 +21,6 @@ get started with main features in the app
   <img src = "https://github.com/user-attachments/assets/496d9360-e82e-467d-a463-72bbaff01179" width = "200"/>
   <img src = "https://github.com/user-attachments/assets/5c101be4-e9e5-4979-b04c-df8ce2ed3989" width = "200"/>
   <img src = "https://github.com/user-attachments/assets/8b369be0-1282-48e4-9364-4a5e6f6835e0" width = "200"/>
-  <br> Main Features in App.<br/>
+  <br> Main Features in Application Cartify.<br/>
   
 </div>
